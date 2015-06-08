@@ -7,103 +7,123 @@
 
 </head>
 <body>
-  <div class="container">
-    <div class="col s3 offset-s6" id="photo-app">
-      <h3>React Photos Feed</h3>
-
-      <!-- card #1 -->
-      <div class="card">
-        <div class="card-image">
-          <img src="https://unsplash.imgix.net/photo-1431184052543-809fa8cc9bd6?fit=crop&fm=jpg0&q=75&w=500">
-          <span class="card-title">Image one Title</span>
-        </div>
-        <div class="card-content">
-          <p>Image one comment.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Like</a>
-        </div>
-      </div>
-
-      <!-- card #2 -->
-      <div class="card">
-        <div class="card-image">
-          <img src="https://unsplash.imgix.net/photo-1430760814266-9c81759e5e55?fit=crop&fm=jpg&q=75&w=500">
-          <span class="card-title">Image two Title</span>
-        </div>
-        <div class="card-content">
-          <p>Image two comment.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Like</a>
-        </div>
-      </div>
-
-      <!-- card #3 -->
-      <div class="card">
-        <div class="card-image">
-          <img src="https://unsplash.imgix.net/photo-1430620081187-c59647bac29e?fit=crop&fm=jpg&q=75&w=500">
-          <span class="card-title">Image three Title</span>
-        </div>
-        <div class="card-content">
-          <p>Image three comment.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Like</a>
-        </div>
-      </div>
-
-      <!-- card #4 -->
-      <div class="card">
-        <div class="card-image">
-          <img src="https://ununsplash.imgix.net/photo-1429032021766-c6a53949594f?fit=crop&fm=jpg&q=75&w=500">
-          <span class="card-title">Image four Title</span>
-        </div>
-        <div class="card-content">
-          <p>Image four comment.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Like</a>
-        </div>
-      </div>
-
-      <br />
-      <div class="divider"></div>
-      <br />
-      <h3>Add a new photo</h3>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Image Title" type="text">
-            </div>
-            <div class="input-field col s6">
-              <input placeholder="Image Comment" type="text">
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Image URL" type="text">
-            </div>
-            <p class="col s12">
-              <a href="https://unsplash.com/">unsplash.com</a> has some nice ones
-            </p>
-          </div>
-          <div class="row">
-            <p class="col s12">
-              <button class="btn waves-effect waves-light" type="submit" name="action">
-                Submit
-                <i class="mdi-content-send right"></i>
-              </button>
-            </p>
-          </div>
-        </form>
-      </div>
-
-    </div>
+  <div id="photo-app">
   </div>
 
+
+  <!--
+
+              <div className="card">
+                <div className="card-image">
+                  <img src="https://unsplash.imgix.net/photo-1430760814266-9c81759e5e55?fit=crop&fm=jpg&q=75&w=500" />
+                  <span className="card-title">Image two Title</span>
+                </div>
+                <div className="card-content">
+                  <p>Image two comment.</p>
+                </div>
+                <div className="card-action">
+                  <a href="#">Like</a>
+                </div>
+              </div>
+
+              <div className="card">
+                <div className="card-image">
+                  <img src="https://unsplash.imgix.net/photo-1430620081187-c59647bac29e?fit=crop&fm=jpg&q=75&w=500" />
+                  <span className="card-title">Image three Title</span>
+                </div>
+                <div className="card-content">
+                  <p>Image three comment.</p>
+                </div>
+                <div className="card-action">
+                  <a href="#">Like</a>
+                </div>
+              </div>
+
+              <div className="card">
+                <div className="card-image">
+                  <img src="https://ununsplash.imgix.net/photo-1429032021766-c6a53949594f?fit=crop&fm=jpg&q=75&w=500" />
+                  <span className="card-title">Image four Title</span>
+                </div>
+                <div className="card-content">
+                  <p>Image four comment.</p>
+                </div>
+                <div className="card-action">
+                  <a href="#">Like</a>
+                </div>
+              </div>
+-->
+
+
   <script type="text/jsx">
+
+    var PhotoList = React.createClass({
+
+      render: function(){
+        return (
+          <div className="container">
+            <div className="col s3 offset-s6" id="photo-app">
+              <h3>React Photos Feed</h3>
+
+              <div className="card">
+                <div className="card-image">
+                  <img src="https://unsplash.imgix.net/photo-1431184052543-809fa8cc9bd6?fit=crop&fm=jpg0&q=75&w=500" />
+                  <span className="card-title">Image one Title</span>
+                </div>
+                <div className="card-content">
+                  <p>Image one comment.</p>
+                </div>
+                <div className="card-action">
+                  <a href="#">Like</a>
+                </div>
+              </div>
+
+              {/* add the other cards */}
+
+              <br />
+              <div className="divider"></div>
+              <br />
+              <h3>Add a new photo</h3>
+              <div className="row">
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col s6">
+                      <input placeholder="Image Title" type="text" />
+                    </div>
+                    <div className="input-field col s6">
+                      <input placeholder="Image Comment" type="text" />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input placeholder="Image URL" type="text" />
+                    </div>
+                    <p className="col s12">
+                      <a href="https://unsplash.com/">unsplash.com</a> has some nice ones
+                    </p>
+                  </div>
+                  <div className="row">
+                    <p className="col s12">
+                      <button className="btn waves-effect waves-light" type="submit" name="action">
+                        Submit
+                        <i className="mdi-content-send right"></i>
+                      </button>
+                    </p>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        ); {/* closes return */}
+      }
+    })
+
+    var renderApp = function(){
+      React.render(<PhotoList />, document.getElementById("photo-app"))
+    }
+
+    renderApp();
+
   </script>
   </body>
 </body>
