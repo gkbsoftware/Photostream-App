@@ -12,6 +12,10 @@
 
   <script type="text/jsx">
 
+    
+    photoCardsJSON = localStorage.photoCards || "[]";
+    photoCards = JSON.parse(photoCardsJSON);
+
     var PhotoList = React.createClass({
 
       render: function(){
