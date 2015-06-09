@@ -10,50 +10,6 @@
   <div id="photo-app">
   </div>
 
-
-  <!--
-
-              <div className="card">
-                <div className="card-image">
-                  <img src="https://unsplash.imgix.net/photo-1430760814266-9c81759e5e55?fit=crop&fm=jpg&q=75&w=500" />
-                  <span className="card-title">Image two Title</span>
-                </div>
-                <div className="card-content">
-                  <p>Image two comment.</p>
-                </div>
-                <div className="card-action">
-                  <a href="#">Like</a>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="card-image">
-                  <img src="https://unsplash.imgix.net/photo-1430620081187-c59647bac29e?fit=crop&fm=jpg&q=75&w=500" />
-                  <span className="card-title">Image three Title</span>
-                </div>
-                <div className="card-content">
-                  <p>Image three comment.</p>
-                </div>
-                <div className="card-action">
-                  <a href="#">Like</a>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="card-image">
-                  <img src="https://ununsplash.imgix.net/photo-1429032021766-c6a53949594f?fit=crop&fm=jpg&q=75&w=500" />
-                  <span className="card-title">Image four Title</span>
-                </div>
-                <div className="card-content">
-                  <p>Image four comment.</p>
-                </div>
-                <div className="card-action">
-                  <a href="#">Like</a>
-                </div>
-              </div>
--->
-
-
   <script type="text/jsx">
 
     var PhotoList = React.createClass({
@@ -64,9 +20,33 @@
             <div className="col s3 offset-s6" id="photo-app">
               <h3>React Photos Feed</h3>
 
-              <PhotoCard />
+              <PhotoCard 
+                          imageUrl="https://unsplash.imgix.net/photo-1431184052543-809fa8cc9bd6?fit=crop&fm=jpg0&q=75&w=500" 
+                          title="Image one Title" 
+                          comment="Image one comment." 
+                          isLiked="true" />
+              {/* End of PhotoCard 1*/}
 
-              {/* add the other cards */}
+              <PhotoCard 
+                          imageUrl="https://unsplash.imgix.net/photo-1430760814266-9c81759e5e55?fit=crop&fm=jpg&q=75&w=500" 
+                          title="Image two Title" 
+                          comment="Image two comment." 
+                          isLiked="true" />
+              {/* End of PhotoCard 2*/}
+
+              <PhotoCard 
+                          imageUrl="https://unsplash.imgix.net/photo-1430620081187-c59647bac29e?fit=crop&fm=jpg&q=75&w=500" 
+                          title="Image three Title" 
+                          comment="Image three comment." 
+                          isLiked="true" />
+              {/* End of PhotoCard 3*/}
+
+              <PhotoCard 
+                          imageUrl="https://ununsplash.imgix.net/photo-1429032021766-c6a53949594f?fit=crop&fm=jpg&q=75&w=500" 
+                          title="Image four Title" 
+                          comment="Image four comment." 
+                          isLiked="true" />
+              {/* End of PhotoCard 4*/}
 
               <br />
               <div className="divider"></div>
@@ -103,10 +83,6 @@
 
             </div>
           </div>
-
-
-
-
         )
       }
     })
@@ -116,11 +92,11 @@
         return(
           <div className="card">
             <div className="card-image">
-              <img src="https://unsplash.imgix.net/photo-1431184052543-809fa8cc9bd6?fit=crop&fm=jpg0&q=75&w=500" />
-              <span className="card-title">Image one Title</span>
+              <img src={this.props.imageUrl} />
+              <span className="card-title">{this.props.title}</span>
             </div>
             <div className="card-content">
-              <p>Image one comment.</p>
+              <p>{this.props.comment}</p>
             </div>
             <div className="card-action">
               <a href="#">Like</a>
