@@ -60,7 +60,7 @@
 
       render: function(){
         return (
-          <div className="container">
+                    <div className="container">
             <div className="col s3 offset-s6" id="photo-app">
               <h3>React Photos Feed</h3>
 
@@ -113,8 +113,24 @@
               </div>
 
             </div>
+            
+            <div>
+              <PhotoCard />
+            </div>
           </div>
-        ); {/* closes return */}
+
+
+
+
+        )
+      }
+    })
+
+    var PhotoCard = React.createClass({
+      render: function() {
+        return(
+          <h1>hi</h1>
+        )
       }
     })
 
