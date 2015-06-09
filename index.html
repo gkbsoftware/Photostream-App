@@ -64,18 +64,7 @@
             <div className="col s3 offset-s6" id="photo-app">
               <h3>React Photos Feed</h3>
 
-              <div className="card">
-                <div className="card-image">
-                  <img src="https://unsplash.imgix.net/photo-1431184052543-809fa8cc9bd6?fit=crop&fm=jpg0&q=75&w=500" />
-                  <span className="card-title">Image one Title</span>
-                </div>
-                <div className="card-content">
-                  <p>Image one comment.</p>
-                </div>
-                <div className="card-action">
-                  <a href="#">Like</a>
-                </div>
-              </div>
+              <PhotoCard />
 
               {/* add the other cards */}
 
@@ -113,10 +102,6 @@
               </div>
 
             </div>
-            
-            <div>
-              <PhotoCard />
-            </div>
           </div>
 
 
@@ -129,7 +114,18 @@
     var PhotoCard = React.createClass({
       render: function() {
         return(
-          <h1>hi</h1>
+          <div className="card">
+            <div className="card-image">
+              <img src="https://unsplash.imgix.net/photo-1431184052543-809fa8cc9bd6?fit=crop&fm=jpg0&q=75&w=500" />
+              <span className="card-title">Image one Title</span>
+            </div>
+            <div className="card-content">
+              <p>Image one comment.</p>
+            </div>
+            <div className="card-action">
+              <a href="#">Like</a>
+            </div>
+          </div>
         )
       }
     })
