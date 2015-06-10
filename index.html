@@ -12,7 +12,6 @@
 
   <script type="text/jsx">
 
-    
     photoCardsJSON = localStorage.photoCards || "[]";
     photoCards = JSON.parse(photoCardsJSON);
 
@@ -71,7 +70,7 @@
         var photoRows = []
 
         for (photo of this.props.photos) {
-          photoRows.push( <PhotoCard data={photo}/> )
+          photoRows.push( <PhotoCard data={photo} index={this.props.photos.indexOf(photo)} /> )
         }
 
         return(
@@ -84,29 +83,49 @@
 
     var PhotoCard = React.createClass({
       getInitialState: function() {
-        return {isLiked: this.props.data.isLiked}
+      if (this.props.data.isLiked) {
+        likeButtonValue = "unlike"
+      }
+      else {
+        likeButtonValue = "like"
+      }
+        return {
+          isLiked: this.props.data.isLiked,
+          likeButton: likeButtonValue
+        }
       },
 
       handleClick: function(event) {
-        event.preventDefault();
-        
-        this.state.setState({isLiked: !isLiked})
+        event.preventDefault(); 
+        this.setState({isLiked: !this.state.isLiked})
+        if (this.state.isLiked) {
+          this.setState({likeButton: "Like"})
+        }
+        else {
+          this.setState({likeButton: "Unlike"})
+        }
+      },
 
+      saveData: function() {
+        photoCards[this.props.index].isLiked = this.state.isLiked;
+        localStorage.photoCards = JSON.stringify(photoCards)
       },
 
       render: function() {
 
+        this.saveData()
+
         return(
           <div className="card">
             <div className="card-image">
-              <img src={this.props.data.imageUrl} />
+              <img src={this.props.data.imgUrl} />
               <span className="card-title">{this.props.data.title}</span>
             </div>
             <div className="card-content">
               <p>{this.props.data.comment}</p>
             </div>
             <div className="card-action">
-              <a onClick={this.handleClick} href="#">Like</a>
+              <a onClick={this.handleClick} href="#">{this.state.likeButton}</a>
             </div>
           </div>
         )
@@ -116,6 +135,8 @@
     var renderApp = function(){
       React.render(<PhotoApp />, document.getElementById("photo-app"))
     }
+
+    
 
     renderApp();
 
