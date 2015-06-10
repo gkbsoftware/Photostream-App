@@ -24,38 +24,7 @@
 
               <PhotoList photos={photoCards} />
 
-              <br />
-              <div className="divider"></div>
-              <br />
-              <h3>Add a new photo</h3>
-              <div className="row">
-                <form className="col s12">
-                  <div className="row">
-                    <div className="input-field col s6">
-                      <input placeholder="Image Title" type="text" />
-                    </div>
-                    <div className="input-field col s6">
-                      <input placeholder="Image Comment" type="text" />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="input-field col s12">
-                      <input placeholder="Image URL" type="text" />
-                    </div>
-                    <p className="col s12">
-                      <a href="https://unsplash.com/">unsplash.com</a> has some nice ones
-                    </p>
-                  </div>
-                  <div className="row">
-                    <p className="col s12">
-                      <button className="btn waves-effect waves-light" type="submit" name="action">
-                        Submit
-                        <i className="mdi-content-send right"></i>
-                      </button>
-                    </p>
-                  </div>
-                </form>
-              </div>
+              <PhotoForm />
 
             </div>
           </div>
@@ -132,11 +101,63 @@
       }
     })
 
+    var PhotoForm = React.createClass({
+      handleSubmit: function(event) {
+        event.preventDefault();
+
+debugger;
+
+        photoCards.push({
+          imgUrl: "https://ununsplash.imgix.net/photo-1422207134147-65fb81f59e38?fit=crop&fm=jpg&h=800&q=75&w=1050",
+          title: "coffee",
+          comment: "my breakfast",
+          isLiked: false
+        })
+      },
+
+      render: function() {
+        return (
+          <div className="photoform">
+            <br />
+            <div className="divider"></div>
+            <br />
+            <h3>Add a new photo</h3>
+            <div className="row">
+              <form onSubmit={this.handleSubmit} className="col s12">
+                <div className="row">
+                  <div className="input-field col s6">
+                    <input id="test" placeholder="Image Title" type="text" ref="hi"/>
+                  </div>
+                  <div className="input-field col s6">
+                    <input placeholder="Image Comment" type="text" />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input placeholder="Image URL" type="text" required/>
+                  </div>
+                  <p className="col s12">
+                    <a href="https://unsplash.com/">unsplash.com</a> has some nice ones
+                  </p>
+                </div>
+                <div className="row">
+                  <p className="col s12">
+                    <button className="btn waves-effect waves-light" type="submit" name="action">
+                      Submit
+                      <i className="mdi-content-send right"></i>
+                    </button>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        )
+      }
+    })
+
     var renderApp = function(){
       React.render(<PhotoApp />, document.getElementById("photo-app"))
     }
-
-    
 
     renderApp();
 
