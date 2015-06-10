@@ -102,17 +102,24 @@
     })
 
     var PhotoForm = React.createClass({
+      saveData: function() {
+        localStorage.photoCards = JSON.stringify(photoCards)
+        this.forceUpdate()
+      },
+
       handleSubmit: function(event) {
         event.preventDefault();
 
-debugger;
+        debugger;
 
         photoCards.push({
-          imgUrl: "https://ununsplash.imgix.net/photo-1422207134147-65fb81f59e38?fit=crop&fm=jpg&h=800&q=75&w=1050",
-          title: "coffee",
-          comment: "my breakfast",
+          imgUrl: this.refs.formImgUrl.getDOMNode().value,
+          title: this.refs.formImgTitle.getDOMNode().value,
+          comment: this.refs.formImgComment.getDOMNode().value,
           isLiked: false
         })
+
+        this.saveData()
       },
 
       render: function() {
@@ -126,15 +133,15 @@ debugger;
               <form onSubmit={this.handleSubmit} className="col s12">
                 <div className="row">
                   <div className="input-field col s6">
-                    <input id="test" placeholder="Image Title" type="text" ref="hi"/>
+                    <input id="test" placeholder="Image Title" type="text" ref="formImgTitle"/>
                   </div>
                   <div className="input-field col s6">
-                    <input placeholder="Image Comment" type="text" />
+                    <input placeholder="Image Comment" type="text" ref="formImgComment" />
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input placeholder="Image URL" type="text" required/>
+                    <input placeholder="Image URL" type="text" ref="formImgUrl" required/>
                   </div>
                   <p className="col s12">
                     <a href="https://unsplash.com/">unsplash.com</a> has some nice ones
