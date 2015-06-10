@@ -110,8 +110,6 @@
       handleSubmit: function(event) {
         event.preventDefault();
 
-        debugger;
-
         photoCards.push({
           imgUrl: this.refs.formImgUrl.getDOMNode().value,
           title: this.refs.formImgTitle.getDOMNode().value,
@@ -120,6 +118,7 @@
         })
 
         this.saveData()
+        renderApp()
       },
 
       render: function() {
