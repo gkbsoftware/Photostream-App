@@ -118,6 +118,10 @@
         })
 
         this.saveData()
+        this.refs.formImgUrl.getDOMNode().value = ""
+        this.refs.formImgTitle.getDOMNode().value = ""
+        this.refs.formImgComment.getDOMNode().value = ""
+        
         renderApp()
       },
 
